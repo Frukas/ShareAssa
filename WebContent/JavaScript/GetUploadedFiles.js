@@ -3,6 +3,7 @@
  * 
  */
 var i = 1;
+var temp = [];
 
 $(document).ready(function() {
 	$.ajax({
@@ -14,9 +15,10 @@ $(document).ready(function() {
 			while(fileElements["Index" + i] != null){
 				var p = document.getElementById('filelist');
 			    var newElement = document.createElement('p');
-			    			    
-			    var $bt=$('<input/>').attr({type:"button", name:"mybutton", value:"Download", onclick:"showAlert(" + i + ")" });
-			    
+			    var element = fileElements["Index" + i];
+			    temp.push(element);
+			    var $bt=$('<input/>').attr({type:"button", name:"mybutton", value:"Download", onclick:"showAlert("+ i + ")"});
+			
 			    newElement.innerHTML = '<div id=Index'+ i +' >Nome do arquivo '+ fileElements["Index"+ i] + '</div>';
 			    p.appendChild(newElement);	
 			    $('#Index' + i).append($bt);
@@ -28,7 +30,8 @@ $(document).ready(function() {
  });
 
 function showAlert(i){
-	alert(i);
+	
+	alert(temp[i-1]);
 }
 
 
