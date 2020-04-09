@@ -1,0 +1,25 @@
+package com.dynamic;
+
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+
+public class CheckUploadFolder {
+	
+	private String folderPath = "C:\\TestUpload";
+	private File dir = new File(folderPath);
+	private Map <String ,String> map = new HashMap<String , String>();
+	private int index = 1;
+	
+	public Map<String ,String> checkFiles() {
+		File[] dir_contents = dir.listFiles();
+		
+		
+		for(File content : dir_contents) {
+			map.put("Index"+ String.valueOf(index), content.getName());
+			index++;
+		}
+		map.size();
+		return map;
+	}
+}
