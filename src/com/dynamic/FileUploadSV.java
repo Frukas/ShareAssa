@@ -67,7 +67,7 @@ public class FileUploadSV extends HttpServlet {
 	    InputStream filecontent = null;
 	    PrintWriter writer = response.getWriter();
 	   // response.setHeader("Content-Disposition", "attachment; filename="+filePart.getSubmittedFileName());
-	    writer.println(filePart.getSubmittedFileName().toString());
+	  //  writer.println(filePart.getSubmittedFileName().toString());
 	  
 	    
 	    

@@ -6,16 +6,19 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<script src="https://code.jquery.com/jquery-1.10.2.js"
-	type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.js"	type="text/javascript"></script>
 <script src="JavaScript/GetUploadedFiles.js" type="text/javascript"></script>
 
 <body>
 <div class="grid-container">
-<form id="filelist" action="FileUploadSV" method="get">
-
-</form>>
-
+	<form id="filelist" action="FileUploadSV" method="get">
+		
+	</form>
+	
+	<form id="fileDelete" action="FileDelete" method="get">
+	
+	</form>
+</div>
 </body>
 </html>
 
