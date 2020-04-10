@@ -48,7 +48,8 @@ public class FileUploadSV extends HttpServlet {
     	
 		while ((i=ins.read()) != -1) {  
 			out.write(i);   
-		} 		
+		}
+		out.close();
     }
 
 	/**

@@ -33,11 +33,10 @@ public class FileDelete extends HttpServlet {
 		String resp = (String) request.getParameter("nameDelete");
 		File fileDelete = new File("C:\\TestUpload\\" + resp );
 		if(fileDelete.delete()) {
-			response.setHeader("Refresh", "0; URL=" + request.getContextPath() + "/UploadedFiles.jsp"); 
+			out.write("deletado");
 		}else {
-			out.println("Falha ao deletar");
-		}	
-				
+			out.write("Falha ao deletar");
+		}				
 }
 
 	/**
@@ -45,7 +44,13 @@ public class FileDelete extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		PrintWriter out = response.getWriter();
+		String resp = (String) request.getParameter("nameDelete");
+		File fileDelete = new File("C:\\TestUpload\\" + resp );
+		if(fileDelete.delete()) {
+			out.write("deletado");
+		}else {
+			out.write("");
+		}	
 	}
-
 }
