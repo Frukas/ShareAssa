@@ -12,10 +12,15 @@
 		<input type="submit" value="Fazer Upload"><br>
 	</form>	
 	
-		<form action="FileUploadSV" enctype="multipart/form-data" method="get">
-		
-		<input type="submit" value="Fazer Download"><br>
+	<form action="FileUploadSV" enctype="multipart/form-data" method="get">	
+		<div class="grid-container">	
+			<div class="grid-item">Texte2 <button type="submit" value="Teste2.txt" text="download" name="nameValue" >"Download"</button></div>
+			<div class="grid-item">	Texte3 <button type="submit" value="Teste3.txt" text="download" name="nameValue" >"Download"</button></div>
+			<div class="grid-item">	Estudar_Mais_tarde.txt <button type="submit" value="Estudar_Mais_tarde.txt" text="download" name="nameValue" >"Download"</button></div>
+		</div>
 	</form>	
+	
+		
 
 </body>
 </html>

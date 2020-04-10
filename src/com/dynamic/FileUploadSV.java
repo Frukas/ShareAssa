@@ -35,17 +35,20 @@ public class FileUploadSV extends HttpServlet {
     }
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-    
+    	
+		String printValue = request.getParameter("nameValue");
+		  	
+    	
     	response.setContentType("application/octet-stream");
-		response.setHeader("Content-Disposition", "attachment; filename= Estudar Mais tarde.txt");
-    	FileInputStream ins = new FileInputStream("C:\\TestUpload\\Estudar Mais tarde.txt");
+		response.setHeader("Content-Disposition", "attachment; filename=" + printValue );
+    	FileInputStream ins = new FileInputStream("C:\\TestUpload\\" + printValue);
     	ServletOutputStream out = response.getOutputStream();
     	int i;
     	
     	
 		while ((i=ins.read()) != -1) {  
 			out.write(i);   
-		} 
+		} 		
     }
 
 	/**

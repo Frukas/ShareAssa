@@ -12,7 +12,6 @@
 
 <body>
 
-<button id="action">Ola mundo</button>
 <form id="filelist">
 
 </form>>
