@@ -11,8 +11,8 @@
 <script src="JavaScript/GetUploadedFiles.js" type="text/javascript"></script>
 
 <body>
-
-<form id="filelist">
+<div class="grid-container">
+<form id="filelist" action="FileUploadSV" method="get">
 
 </form>>
 
