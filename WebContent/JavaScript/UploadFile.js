@@ -2,13 +2,15 @@
  * 
  */
 
-$(document).ready(function(){
-	/*$.get("FileListRetriver", function(data){
-		LineGenerator(data);
-	},"json");*/
-	
-	divUpdate();
-	
+$(document).ready(function(){	
+		
+	divUpdate();	
+
+	$('#RButton').click(function(){
+		$('#filePanel').load('UploadPage.jsp #filePanel',function(){
+			divUpdate();
+		});			
+	});
 	
 	$('#SubmitToUpload').click(function(){
 		
@@ -20,8 +22,7 @@ $(document).ready(function(){
 		fd.append('fileName', file);
 			$.ajax({
 				url:'FileUploadSV',
-				data : fd,
-				//contentType: 'multipart/form-data',
+				data : fd,				
 				contentType: false,
 				processData: false,
 				type:"POST",
@@ -37,12 +38,15 @@ $(document).ready(function(){
 	});	
 });
 
+
+
+
+
 function divUpdate(){
 	$.get("FileListRetriver", function(data){
 		LineGenerator(data);
 	},"json");
 }
-
 
 function LineGenerator(fileElements){
 		
@@ -70,6 +74,6 @@ function deleteFile(element){
 		$.get("FileDelete",{nameDelete:element}, function(data){
 			alert(data);
 		});
-	});
-	//alert(element);
+	});	
 }
+
