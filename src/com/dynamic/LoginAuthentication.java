@@ -13,6 +13,8 @@ public class LoginAuthentication {
 				return true;
 			}
 		}
-		return false;		
-	}	
+		System.out.println("新しい");
+		return false;			
+	}		
+	
 }

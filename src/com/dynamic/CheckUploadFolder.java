@@ -9,7 +9,7 @@ public class CheckUploadFolder {
 	private String folderPath = "C:\\TestUpload";
 	private File dir = new File(folderPath);
 	private Map <String ,String> map = new HashMap<String , String>();
-	private int index = 1;
+	private int index = 0;
 	
 	public Map<String ,String> checkFiles() {
 		File[] dir_contents = dir.listFiles();

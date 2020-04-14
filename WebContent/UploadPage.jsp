@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"	type="text/javascript"></script>
 <script src="JavaScript/UploadFile.js" type="text/javascript"></script>
-
+<link rel="stylesheet" type="text/css" href="StyleUploadPage.css" media="screen" />
 <%
 	
 	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
@@ -16,42 +16,37 @@
 %>
 
 <head>
-<meta charset="ISO-8859-1">
+<html lang="ja-jp">
+<meta charset="utf-8">
 <title>ShareAssa</title>
 </head>
 <body>
 <h1>ShareAssa</h1>
+
+<h2>Upload Files</h2>
 		Escolha o arquivo <input type="file" id="fileUpload"><br>
 		<input type="submit" id="SubmitToUpload" value="Upload File">	
 <br>
-	<br>
-	
-<div id="formButton">
-	<form action="Logout" 	>	
-		<input type="submit" value="Log Out" >
-	</form>
-	
+<br>	
 	<input type="submit" id="RButton" value="Refresh">	
-</div>	
+<br>
+<br>
+<p>------------------------------------------------------------------------</p>
+<h2>FILES</h2>
+
+<h3>Name</h3>
+<table id="tableDownload"></table>
+<tr>
 
 
-		
-<h1>Files For Download </h1>
-<div id="filePanel" class="grid-container" style="text-align:justify">
-	<form id="filelist" action="FileUploadSV" method="get">
-		
-	</form>	
-	
-	<h1>---------------///---------------</h1>
-		
-<h1>Delete Files </h1>
-	
-	<form id="fileDelete">	
-	
-	</form>
-	
-	
-</div>	
+</tr>
+
+<br>
+<p>------------------------------------------------------------------------</p>
+
+<form action="Logout">	
+		<input type="submit" value="Log Out" >
+</form>
 
 </body>
 </html>

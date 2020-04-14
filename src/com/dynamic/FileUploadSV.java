@@ -63,27 +63,33 @@ public class FileUploadSV extends HttpServlet {
 		Part filePart = request.getPart("fileName");
 		String fileName = filePart.getSubmittedFileName();
 		
+		fileName = checkSpacesInString(fileName);
+		
+		System.out.println(filePart.getSize());
+		
 		int i;		
 		OutputStream out = null;
-	    InputStream filecontent = null;
-	    PrintWriter writer = response.getWriter();
-	   // response.setHeader("Content-Disposition", "attachment; filename="+filePart.getSubmittedFileName());
-	  //  writer.println(filePart.getSubmittedFileName().toString());
-	  
-	    
+	    InputStream filecontent = null;  	    
 	    
 	    try{
 	    out = new FileOutputStream(new File(path+fileName));
-	    filecontent = filePart.getInputStream();
+	    filecontent = filePart.getInputStream();	    
 	    
 	    }catch(Exception e) {
 	    	e.printStackTrace();
 	    }
-	    
+	    File finalFinal = new File(path+fileName);	    
 		while ((i=filecontent.read()) != -1) {  
-			out.write(i);   
+			out.write(i); 
+			//System.out.println(finalFinal.length());
 		} 
-		out.close();
+		out.close();		
 	}
-
+	
+	private String checkSpacesInString(String fileName) {
+		if(fileName.contains(" ")) {
+			fileName = fileName.replace(" ","_");
+		}		
+		return fileName;		
+	}
 }

@@ -11,7 +11,7 @@
 	<h1> ShareAssa - Login</h1>
 	<form id="loginForm" action="LoginRequestSV">
 		<input type="text" name="aname"><br>
-		<input type="text" name="apassword">
+		<input type="password" name="apassword">
 		<input type="submit">
 	</form>
 </div>
