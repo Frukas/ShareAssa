@@ -31,11 +31,10 @@ public class FileListRetriver extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		CheckUploadFolder cuf = new CheckUploadFolder();
-		Gson gs = new Gson();
-		//String resp = request.getParameter("test");
+		Gson gs = new Gson();		
 		
-		//response.setContentType("text/plain");
-		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF8");
+		response.setContentType("application/json");		
 		response.getWriter().write(gs.toJson(cuf.checkFiles()));		
 	}
 
@@ -46,5 +45,4 @@ public class FileListRetriver extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }

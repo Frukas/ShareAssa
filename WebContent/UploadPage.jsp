@@ -4,7 +4,7 @@
 <html>
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"	type="text/javascript"></script>
-<script src="JavaScript/UploadFile.js" type="text/javascript"></script>
+<script src="JavaScript/UploadFile.js" type="text/javascript" charset="UTF-8"></script>
 <link rel="stylesheet" type="text/css" href="StyleUploadPage.css" media="screen" />
 <%
 	
@@ -16,7 +16,7 @@
 %>
 
 <head>
-<html lang="ja-jp">
+
 <meta charset="utf-8">
 <title>ShareAssa</title>
 </head>
@@ -37,7 +37,6 @@
 <h3>Name</h3>
 <table id="tableDownload"></table>
 <tr>
-
 
 </tr>
 

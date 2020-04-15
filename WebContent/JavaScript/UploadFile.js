@@ -17,12 +17,11 @@ $(document).ready(function(){
 		if(file == null){
 			alert("Arquivo não selecionado");			
 		}else{
-		var fd = new FormData();
-		
-		fd.append('fileName', file);
+		var fd = new FormData();		
+		fd.append('fileName', file);		
 			$.ajax({
 				url:'FileUploadSV',
-				data : fd,				
+				data : fd, 	
 				contentType: false,
 				processData: false,
 				type:"POST",
@@ -37,7 +36,7 @@ $(document).ready(function(){
 
 function divUpdate(){
 	$.get("FileListRetriver", function(data){
-		LineGenerator(data);
+		LineGenerator(data);		
 	},"json");
 }
 

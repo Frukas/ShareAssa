@@ -5,9 +5,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.nio.file.Path;
+import java.io.PrintStream;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -58,28 +58,29 @@ public class FileUploadSV extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//response.setHeader("Content-Disposition", "attachment; filename=");
+		//response.setCharacterEncoding("UTF-8");
+		//response.setHeader("Content-Type", "text/xml;charset=UTF-8");
 		
 		String path = "C:\\TestUpload\\";
-		Part filePart = request.getPart("fileName");
+		Part filePart = request.getPart("fileName");		
 		String fileName = filePart.getSubmittedFileName();
+		int i;
 		
-		fileName = checkSpacesInString(fileName);
-		
-		System.out.println(filePart.getSize());
-		
-		int i;		
+		fileName = checkSpacesInString(fileName);				
 		OutputStream out = null;
 	    InputStream filecontent = null;  	    
+	    InputStreamReader isr = null;
 	    
 	    try{
 	    out = new FileOutputStream(new File(path+fileName));
 	    filecontent = filePart.getInputStream();	    
+	    isr = new InputStreamReader(filecontent, "UTF8");
 	    
 	    }catch(Exception e) {
 	    	e.printStackTrace();
 	    }
 	    File finalFinal = new File(path+fileName);	    
-		while ((i=filecontent.read()) != -1) {  
+		while ((i=isr.read()) != -1) {  
 			out.write(i); 
 			//System.out.println(finalFinal.length());
 		} 
@@ -91,5 +92,5 @@ public class FileUploadSV extends HttpServlet {
 			fileName = fileName.replace(" ","_");
 		}		
 		return fileName;		
-	}
+	}	
 }
