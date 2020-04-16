@@ -3,6 +3,7 @@ package com.dynamic;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -46,7 +47,8 @@ public class FileDelete extends HttpServlet {
 		// TODO Auto-generated method stub
 		PrintWriter out = response.getWriter();
 		String resp = (String) request.getParameter("nameDelete");
-		File fileDelete = new File("C:\\TestUpload\\" + resp );
+		String jfile = URLEncoder.encode(resp,"UTF-8");
+		File fileDelete = new File("C:\\TestUpload\\" + jfile );
 		if(fileDelete.delete()) {
 			out.write("deletado");
 		}else {

@@ -5,14 +5,14 @@
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"	type="text/javascript"></script>
 <script src="JavaScript/UploadFile.js" type="text/javascript" charset="UTF-8"></script>
-<link rel="stylesheet" type="text/css" href="StyleUploadPage.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="CSS/StyleUploadPage.css" media="screen" />
 <%
 	
-	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+	//response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 
-	if(session.getAttribute("auth") == null){
-			response.sendRedirect("Login.jsp");
-		}	 
+	//if(session.getAttribute("auth") == null){
+			//response.sendRedirect("Login.jsp");
+		//}	 
 %>
 
 <head>
@@ -23,9 +23,15 @@
 <body>
 <h1>ShareAssa</h1>
 
+<div id="LoadScreen">
+	<img src="img/esperas_saltitantes.gif" height="50" width="50" style="float:middle">
+</div>
+
+<fieldset>
 <h2>Upload Files</h2>
 		Escolha o arquivo <input type="file" id="fileUpload"><br>
 		<input type="submit" id="SubmitToUpload" value="Upload File">	
+</fieldset>
 <br>
 <br>	
 	<input type="submit" id="RButton" value="Refresh">	
@@ -46,6 +52,7 @@
 <form action="Logout">	
 		<input type="submit" value="Log Out" >
 </form>
+
 
 </body>
 </html>

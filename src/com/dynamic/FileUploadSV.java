@@ -8,6 +8,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -27,7 +32,7 @@ public class FileUploadSV extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
-     * @see HttpServlet#HttpServlet()
+     * File Download Function
      */
     public FileUploadSV() {
         super();
@@ -35,13 +40,16 @@ public class FileUploadSV extends HttpServlet {
     }
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-    	
+    	    	    	
 		String printValue = request.getParameter("nameValue");
-		  	
-    	
+		String jvalue = URLEncoder.encode(printValue,"UTF-8");
+		 
+		System.out.println(printValue);
+				
+		response.setCharacterEncoding("UTF8");
     	response.setContentType("application/octet-stream");
-		response.setHeader("Content-Disposition", "attachment; filename=" + printValue );
-    	FileInputStream ins = new FileInputStream("C:\\TestUpload\\" + printValue);
+		response.setHeader("Content-Disposition", "attachment; filename=" + jvalue );
+    	FileInputStream ins = new FileInputStream("C:\\TestUpload\\" + printValue );
     	ServletOutputStream out = response.getOutputStream();
     	int i;
     	
@@ -53,38 +61,43 @@ public class FileUploadSV extends HttpServlet {
     }
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * File Upload Function
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//response.setHeader("Content-Disposition", "attachment; filename=");
-		//response.setCharacterEncoding("UTF-8");
-		//response.setHeader("Content-Type", "text/xml;charset=UTF-8");
+		File tempFile = null;
+		File finalFile = null;
 		
 		String path = "C:\\TestUpload\\";
 		Part filePart = request.getPart("fileName");		
 		String fileName = filePart.getSubmittedFileName();
 		int i;
+				
+		fileName = checkSpacesInString(fileName);
+		fileName = checkDuplicate(fileName,fileName , 0);
 		
-		fileName = checkSpacesInString(fileName);				
 		OutputStream out = null;
 	    InputStream filecontent = null;  	    
 	    InputStreamReader isr = null;
 	    
 	    try{
-	    out = new FileOutputStream(new File(path+fileName));
-	    filecontent = filePart.getInputStream();	    
-	    isr = new InputStreamReader(filecontent, "UTF8");
+		    tempFile = new File( path + fileName + ".tmp");
+		    finalFile = new File( path + fileName );
+		    out = new FileOutputStream(tempFile);
+		    filecontent = filePart.getInputStream();	    
+		    isr = new InputStreamReader(filecontent, "UTF8");
+		    
+		    while ((i=isr.read()) != -1) {  
+				out.write(i);				
+			}		    
 	    
 	    }catch(Exception e) {
 	    	e.printStackTrace();
-	    }
-	    File finalFinal = new File(path+fileName);	    
-		while ((i=isr.read()) != -1) {  
-			out.write(i); 
-			//System.out.println(finalFinal.length());
-		} 
-		out.close();		
+	    }	   
+		
+		out.close();
+		tempFile.renameTo(finalFile);
+		
 	}
 	
 	private String checkSpacesInString(String fileName) {
@@ -93,4 +106,23 @@ public class FileUploadSV extends HttpServlet {
 		}		
 		return fileName;		
 	}	
+
+	
+	
+	private String checkDuplicate(String nameInitial, String namefinal, int i ) throws UnsupportedEncodingException {
+		CheckUploadFolder cuf = new CheckUploadFolder();
+		Map <String ,String> map = new HashMap<String , String>();
+		String existingFileUTF8 = URLEncoder.encode(namefinal,"UTF-8");
+		String newFileName = nameInitial.substring(0, nameInitial.length()-4) +"_" + i  + nameInitial.substring(nameInitial.length()-4, nameInitial.length());
+			
+		map = cuf.checkFiles();
+		
+		if(map.containsValue(existingFileUTF8) || map.containsValue(namefinal) ) {	
+			i++;			
+			return checkDuplicate(nameInitial, newFileName, i);			
+		}
+		
+		return namefinal;
+	}
+	
 }

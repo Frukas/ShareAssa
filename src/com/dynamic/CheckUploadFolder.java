@@ -16,8 +16,7 @@ public class CheckUploadFolder {
 		File[] dir_contents = dir.listFiles();		
 		
 		for(File content : dir_contents) {
-			map.put("Index"+ String.valueOf(index), content.getName());
-			System.out.println(content.getName());			
+			map.put("Index"+ String.valueOf(index), content.getName());						
 			index++;
 		}
 		map.size();
