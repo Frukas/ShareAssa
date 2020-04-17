@@ -2,8 +2,9 @@
 
 
 body{
-	fonty-family:"Helvetica";
-	background-color: #dbdbdb;
+	fonty-family:Arial, Helvetica, sans-serif;
+	background-image: linear-gradient(to bottom right, #dbdbdb,#8ec6c5)
+	
 }
 
 #LoadScreen{
@@ -27,6 +28,27 @@ body{
      transform: translate(0%, 45%);
 }
 
-.btn{
-	background:#4cbbb9;
+#SubmitToUpload{
+	
+}
+
+.button {
+  background-color: #30475e;
+  border: none;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 1px 1px;
+  opacity: 1;
+  transition: 0.3s;
+  border-radius: 4px
+}
+
+.button:hover {opacity: 0.6}
+
+.frame{
+	border-radius: 4px
 }

@@ -39,17 +39,20 @@ public class FileUploadSV extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
     
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    @SuppressWarnings("unused")
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     	    	    	
 		String printValue = request.getParameter("nameValue");
-		String jvalue = URLEncoder.encode(printValue,"UTF-8");
-		 
-		System.out.println(printValue);
-				
+		String jvalue = URLEncoder.encode(printValue,"UTF-8");		 
+			
 		response.setCharacterEncoding("UTF8");
     	response.setContentType("application/octet-stream");
 		response.setHeader("Content-Disposition", "attachment; filename=" + jvalue );
-    	FileInputStream ins = new FileInputStream("C:\\TestUpload\\" + printValue );
+		
+		FileInputStream ins = new FileInputStream("C:\\TestUpload\\" + printValue );
+		if(ins == null) {
+			response.sendRedirect("DownloadErrorPage.jsp");
+		}    	
     	ServletOutputStream out = response.getOutputStream();
     	int i;
     	
@@ -69,12 +72,12 @@ public class FileUploadSV extends HttpServlet {
 		File finalFile = null;
 		
 		String path = "C:\\TestUpload\\";
-		Part filePart = request.getPart("fileName");		
-		String fileName = filePart.getSubmittedFileName();
-		int i;
-				
+		Part filePart = request.getPart("fileObject");		
+		String fileName = new String(request.getParameter("filename").getBytes("iso-8859-1"), "UTF-8");
+		int i;		
+		
 		fileName = checkSpacesInString(fileName);
-		fileName = checkDuplicate(fileName,fileName , 0);
+		fileName = checkDuplicate(fileName,fileName , 0);			
 		
 		OutputStream out = null;
 	    InputStream filecontent = null;  	    

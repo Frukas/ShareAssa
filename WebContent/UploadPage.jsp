@@ -27,30 +27,27 @@
 	<img src="img/esperas_saltitantes.gif" height="50" width="50" style="float:middle">
 </div>
 
-<fieldset>
-<h2>Upload Files</h2>
-		Escolha o arquivo <input type="file" id="fileUpload"><br>
-		<input type="submit" id="SubmitToUpload" value="Upload File">	
+<fieldset class="frame">
+	<legend>Upload Files</legend>
+		Select the file <input type="file" class="button" id="fileUpload"><br>
+		<input type="submit" class="button" id="SubmitToUpload" value="Upload File">	
 </fieldset>
-<br>
-<br>	
-	<input type="submit" id="RButton" value="Refresh">	
-<br>
-<br>
-<p>------------------------------------------------------------------------</p>
-<h2>FILES</h2>
 
-<h3>Name</h3>
+<br>
+
+<fieldset class="frame">
+<legend>Download Files &nbsp;<input type="submit" class="button" id="RButton" value="Refresh"></legend>
+
+
 <table id="tableDownload"></table>
-<tr>
 
-</tr>
+
+</fieldset>
 
 <br>
-<p>------------------------------------------------------------------------</p>
 
 <form action="Logout">	
-		<input type="submit" value="Log Out" >
+	<input type="submit" class="button" value="Log Out" >
 </form>
 
 

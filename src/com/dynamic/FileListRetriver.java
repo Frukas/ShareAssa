@@ -36,7 +36,7 @@ public class FileListRetriver extends HttpServlet {
 		response.setCharacterEncoding("UTF8");
 		response.setContentType("application/json");		
 		response.getWriter().write(gs.toJson(cuf.checkFiles()));		
-	}
+	}	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
