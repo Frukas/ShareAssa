@@ -8,11 +8,11 @@
 <link rel="stylesheet" type="text/css" href="CSS/StyleUploadPage.css" media="screen" />
 <%
 	
-	//response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 
-	//if(session.getAttribute("auth") == null){
-			//response.sendRedirect("Login.jsp");
-		//}	 
+	if(session.getAttribute("auth") == null){
+			response.sendRedirect("Login.jsp");
+	}	 
 %>
 
 <head>
@@ -29,7 +29,7 @@
 
 <fieldset class="frame">
 	<legend>Upload Files</legend>
-		Select the file <input type="file" class="button" id="fileUpload"><br>
+		Select file <input type="file" class="button" id="fileUpload"><br>
 		<input type="submit" class="button" id="SubmitToUpload" value="Upload File">	
 </fieldset>
 
@@ -50,6 +50,6 @@
 	<input type="submit" class="button" value="Log Out" >
 </form>
 
-
 </body>
+
 </html>

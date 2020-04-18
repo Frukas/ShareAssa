@@ -49,7 +49,7 @@ public class FileUploadSV extends HttpServlet {
     	response.setContentType("application/octet-stream");
 		response.setHeader("Content-Disposition", "attachment; filename=" + jvalue );
 		
-		FileInputStream ins = new FileInputStream("C:\\TestUpload\\" + printValue );
+		FileInputStream ins = new FileInputStream("C:\\ShareAssaFolder\\" + printValue );
 		if(ins == null) {
 			response.sendRedirect("DownloadErrorPage.jsp");
 		}    	
@@ -71,7 +71,7 @@ public class FileUploadSV extends HttpServlet {
 		File tempFile = null;
 		File finalFile = null;
 		
-		String path = "C:\\TestUpload\\";
+		String path = "C:\\ShareAssaFolder\\";
 		Part filePart = request.getPart("fileObject");		
 		String fileName = new String(request.getParameter("filename").getBytes("iso-8859-1"), "UTF-8");
 		int i;		

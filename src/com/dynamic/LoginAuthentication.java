@@ -2,7 +2,7 @@ package com.dynamic;
 
 public class LoginAuthentication {
 	
-		String[][] userList = {{"abeam","abeam01"},{"admin","admin"}};
+		String[][] userList = {{"abeam","Abeam01"},{"Gaito","ga2020"}};
 	
 	public boolean getAuthentication(String aname, String aPassword) {
 			
@@ -12,6 +12,7 @@ public class LoginAuthentication {
 				userList[i][0].contentEquals(aname);
 				return true;
 			}
+			
 		}
 		
 		return false;			

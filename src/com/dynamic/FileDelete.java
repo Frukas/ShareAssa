@@ -32,7 +32,7 @@ public class FileDelete extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		String resp = (String) request.getParameter("nameDelete");
-		File fileDelete = new File("C:\\TestUpload\\" + resp );
+		File fileDelete = new File("C:\\ShareAssaFolder\\" + resp );
 		if(fileDelete.delete()) {
 			out.write("deletado");
 		}else {
@@ -48,7 +48,7 @@ public class FileDelete extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		String resp = (String) request.getParameter("nameDelete");
 		String jfile = URLEncoder.encode(resp,"UTF-8");
-		File fileDelete = new File("C:\\TestUpload\\" + jfile );
+		File fileDelete = new File("C:\\ShareAssaFolder\\" + jfile );
 		if(fileDelete.delete()) {
 			out.write("deletado");
 		}else {

@@ -2,18 +2,32 @@
 
 
 body{
-	fonty-family:Arial, Helvetica, sans-serif;
-	background-image: linear-gradient(to bottom right, #dbdbdb,#8ec6c5)
-	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:large;
+	background-image: linear-gradient(to bottom right, #dbdbdb,#8ec6c5);
+	margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    padding-right: 10px;
+	padding-left: 10px;    	
 }
 
-#LoadScreen{
+input[type="file"]{
+	display:inline-block;
+}
 
+h1{
+	fonty-family:Verdana, Tahoma, "sans-serif"; 
+}
+
+
+#LoadScreen{
+	background-color: white;
 	Width:100px;
 	height:100px;
 	overflow: hidden;
 	box-shadow: 0 0 20px black;
-	border-radius: 8px;
+	border-radius: 4px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -33,6 +47,8 @@ body{
 }
 
 .button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:large;
   background-color: #30475e;
   border: none;
   color: white;
@@ -41,14 +57,17 @@ body{
   text-decoration: none;
   display: inline-block;
   font-size: 12px;
-  margin: 1px 1px;
+  margin: 0px 0px;
   opacity: 1;
   transition: 0.3s;
-  border-radius: 4px
+  border-radius: 4px; 
+  
 }
 
 .button:hover {opacity: 0.6}
 
 .frame{
-	border-radius: 4px
+	border-radius: 4px;
+	padding-top: 20px;
+	padding-bottom: 20px;  
 }

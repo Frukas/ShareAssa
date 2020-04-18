@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class CheckUploadFolder {
 	
-	private String folderPath = "C:\\TestUpload";
+	private String folderPath = "C:\\ShareAssaFolder\\";
 	private File dir = new File(folderPath);
 	private Map <String ,String> map = new HashMap<String , String>();
 	private int index = 0;

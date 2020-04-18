@@ -39,7 +39,7 @@ public class LoginRequestSV extends HttpServlet {
 			session.setAttribute("auth", name);
 		}else {
 			response.sendRedirect("Login.jsp");
-		}		
+		}	
 		
 	}
 
